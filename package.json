@@ -1,0 +1,32 @@
+{
+  "name": "mall_server",
+  "version": "1.0.0",
+  "description": "我的商城后台系统",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bin/www",
+    "dev": "./node_modules/.bin/nodemon bin/www",
+    "prd": "pm2 start bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zhu",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-decorators": "^7.4.0",
+    "@babel/polyfill": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
+    "bcrypt": "^3.0.5",
+    "glob": "^7.1.3",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.10.1",
+    "mongoose": "^5.5.0",
+    "node-schedule": "^1.3.2",
+    "ramda": "^0.26.1"
+  }
+}
