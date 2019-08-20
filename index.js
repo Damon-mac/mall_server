@@ -2,7 +2,7 @@ import Koa from 'koa'
 import R from 'ramda'
 import config from './config'
 import { join } from 'path'
-import { connect, initSchemas, initAdmin, initOnes, initSchedule } from './database/init'
+import { connect, initSchemas, initAdmin } from './database/init'
 
 const MIDDLEWARES = ['general', 'router']
 
@@ -21,17 +21,14 @@ const useMiddlewares = (app) => {
 ;(async() => {
   await connect()
   initSchemas()
-  // await initAdmin()
-  // await initOnes()
-  initSchedule()
+  await initAdmin()
   const app = new Koa()
-  const { port } = config
   await useMiddlewares(app)
-  app.listen(port, () => {
+  app.listen(config.port, () => {
     console.log(
       process.env.NODE_ENV === 'development'
-        ? `Open http://localhost:${port}`
-        : `App listening on port ${port}`
+        ? `Open http://localhost:${config.port}`
+        : `App listening on port ${config.port}`
     )
   })
 })()
